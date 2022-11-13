@@ -5,12 +5,12 @@
 - [x] webpack config
 - [x] babel config
 - [x] eslint config
-- [] jest config
-- [] git hooks config
-- [] stylelint config? (maybe)
-- [] bundle analyzer
-- [] add package tools
-- [] create a funny favicon
-- [] test performance with big project or files
-- [] readme
+- [ ] jest config
+- [ ] git hooks config
+- [ ] stylelint config? (maybe)
+- [ ] bundle analyzer
+- [ ] add package tools
+- [ ] create a funny favicon
+- [ ] test performance with big project or files
+- [ ] readme
 - [x] be happy :)
