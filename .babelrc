@@ -1,12 +1,28 @@
 {
   "presets": [
     "@babel/preset-typescript",
-    "@babel/preset-env",
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "modules": false
+      }
+    ],
     [
       "@babel/preset-react",
       {
         "runtime": "automatic"
       }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+        {
+          "corejs": false,
+          "regenerator": true
+        }
     ]
   ],
   "env": {
@@ -17,7 +33,16 @@
     },
     "production": {
       "plugins": [
-
+        "transform-react-remove-prop-types",
+        "lodash",
+        [
+          "transform-imports", {
+            "react-router": {
+              "transform": "react-router/${member}",
+              "preventFullImport": true
+            }
+          }
+        ]
       ]
     }
   }
