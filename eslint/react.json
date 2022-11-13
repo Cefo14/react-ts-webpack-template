@@ -1,0 +1,22 @@
+{
+  "rules": {
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "ignore",
+        "custom": "enforce",
+        "explicitSpread": "enforce",
+        "exceptions": [
+          "Component"
+        ]
+      }
+    ],
+    "react/prop-types": "off"
+  }
+}

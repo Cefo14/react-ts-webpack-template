@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:react/jsx-runtime",
+    "plugin:sonarjs/recommended",
+    "./eslint/config.json"
+  ],
+
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+
+  "overrides": [
+    {
+      "files": [
+        "**/*.stories.*"
+      ],
+      "rules": {
+        "import/no-extraneous-dependencies": "off",
+        "import/no-anonymous-default-export": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/prop-types": "off"
+      }
+    },
+    {
+			"files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+			"extends": [
+        "plugin:jest/recommended",
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/react"
+      ],
+      "rules": {
+        "react/jsx-props-no-spreading": "off"
+      }
+		}
+  ]
+}

@@ -33,6 +33,12 @@ module.exports = {
     static: {
       directory: publicPath
     },
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      }
+    }
   },
 
   plugins: [

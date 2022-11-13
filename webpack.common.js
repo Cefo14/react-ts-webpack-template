@@ -6,12 +6,14 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const srcPath = path.join(__dirname, 'src');
 const publicPath = path.join(__dirname, 'public');
 const buildPath = path.join(__dirname, 'build');
 const nodeModulesPath = path.join(__dirname, 'node_modules');
 const cachePath = path.join(nodeModulesPath, '.cache');
+const eslintCachePath = path.join(cachePath, '.eslintcache');
 const entryHTMLFileName = 'index.html';
 const entryFileName = 'index.tsx';
 const jsRelativePath = 'js';
@@ -109,6 +111,13 @@ const load = (env) => {
             syntactic: true,
           }
         },
+      }),
+      new ESLintPlugin({
+        extensions: ['js', 'jsx', 'ts', 'tsx'],
+        failOnError: true,
+        failOnWarning: false,
+        cache: true,
+        cacheLocation: eslintCachePath,
       }),
     ]
   }
