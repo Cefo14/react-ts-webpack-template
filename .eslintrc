@@ -5,7 +5,7 @@
     "airbnb-typescript",
     "plugin:react/jsx-runtime",
     "plugin:sonarjs/recommended",
-    "./eslint/config.json"
+    "./config/eslint/config.json"
   ],
 
   "parserOptions": {
