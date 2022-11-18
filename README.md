@@ -5,7 +5,7 @@
 - [x] webpack config
 - [x] babel config
 - [x] eslint config
-- [ ] jest config
+- [x] jest config
 - [ ] git hooks config
 - [ ] stylelint config? (maybe)
 - [ ] bundle analyzer

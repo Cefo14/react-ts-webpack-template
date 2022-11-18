@@ -3,6 +3,9 @@ require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
 
+const postcssPresetEnv = require('postcss-preset-env');
+const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -73,6 +76,17 @@ const load = (env) => {
             },
             {
               loader: 'css-loader'
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: {
+                  plugins: [
+                    postcssPresetEnv(),
+                    postcssFlexbugsFixes(),
+                  ],
+                },
+              },
             },
             {
               loader: 'sass-loader'
