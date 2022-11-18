@@ -8,10 +8,12 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-const srcPath = path.join(__dirname, 'src');
-const publicPath = path.join(__dirname, 'public');
-const buildPath = path.join(__dirname, 'build');
-const nodeModulesPath = path.join(__dirname, 'node_modules');
+const rootPath = path.resolve(__dirname, '..', '..');
+
+const srcPath = path.join(rootPath, 'src');
+const publicPath = path.join(rootPath, 'public');
+const buildPath = path.join(rootPath, 'build');
+const nodeModulesPath = path.join(rootPath, 'node_modules');
 const cachePath = path.join(nodeModulesPath, '.cache');
 const eslintCachePath = path.join(cachePath, '.eslintcache');
 const entryHTMLFileName = 'index.html';

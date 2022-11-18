@@ -1,8 +1,8 @@
 const { merge } = require('webpack-merge');
 
-const commonConfig = require('./webpack.common');
-const devConfig = require('./webpack.dev');
-const prodConfig = require('./webpack.prod');
+const commonConfig = require('./config/webpack/webpack.common');
+const devConfig = require('./config/webpack/webpack.dev');
+const prodConfig = require('./config/webpack/webpack.prod');
 
 module.exports = (env, args) => {
   const { mode } = args;
