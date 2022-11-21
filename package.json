@@ -12,7 +12,9 @@
     "test:watch": "jest --watch",
     "test:staged": "react-scripts test --watchAll=false --findRelatedTests",
     "git:husky": "husky install",
-    "git:commit": "cz"
+    "git:commit": "cz",
+    "check:updates": "ncu",
+    "check:unused": "depcheck"
   },
   "devDependencies": {
     "@babel/core": "7.19.6",
@@ -42,6 +44,7 @@
     "css-loader": "6.7.1",
     "css-minimizer-webpack-plugin": "4.2.2",
     "cz-conventional-changelog": "3.3.0",
+    "depcheck": "1.4.3",
     "dotenv": "16.0.3",
     "eslint": "8.2.0",
     "eslint-config-airbnb": "19.0.4",
@@ -63,6 +66,7 @@
     "jest-environment-jsdom": "29.3.1",
     "lint-staged": "13.0.3",
     "mini-css-extract-plugin": "2.6.1",
+    "npm-check-updates": "16.4.1",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-loader": "7.0.1",
     "postcss-preset-env": "7.8.3",

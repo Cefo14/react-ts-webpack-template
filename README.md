@@ -6,10 +6,10 @@
 - [x] babel config
 - [x] eslint config
 - [x] jest config
-- [ ] git hooks config
+- [x] git hooks config
 - [ ] stylelint config? (maybe)
 - [ ] bundle analyzer
-- [ ] add package tools
+- [x] add package tools
 - [ ] create a funny favicon
 - [ ] test performance with big project or files
 - [ ] readme
