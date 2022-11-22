@@ -8,7 +8,7 @@
 - [x] jest config
 - [x] git hooks config
 - [ ] stylelint config? (maybe)
-- [ ] bundle analyzer
+- [x] bundle analyzer
 - [x] add package tools
 - [x] create a funny favicon
 - [ ] test performance with big project or files

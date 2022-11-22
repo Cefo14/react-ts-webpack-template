@@ -1,7 +1,9 @@
 require('dotenv').config();
 
 const path = require('path');
+
 const webpack = require('webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const postcssPresetEnv = require('postcss-preset-env');
 const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
@@ -38,9 +40,12 @@ const isProductionEnv = (env = '') => {
   return env === mode || NODE_ENV === mode
 };
 
-const load = (env) => {
-  const isDevelopment = isDevelopmentEnv(env);
-  const isProduction = isProductionEnv(env);
+const load = ({
+  mode,
+  ANALYZE_BUNDLE,
+}) => {
+  const isDevelopment = isDevelopmentEnv(mode);
+  const isProduction = isProductionEnv(mode);
 
   return {
     cache: {
@@ -137,7 +142,8 @@ const load = (env) => {
         cache: true,
         cacheLocation: eslintCachePath,
       }),
-    ]
+      ANALYZE_BUNDLE && new BundleAnalyzerPlugin(),
+    ].filter(Boolean)
   }
 };
 
