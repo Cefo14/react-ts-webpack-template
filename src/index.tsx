@@ -1,12 +1,13 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 
 import 'normalize.css';
-import './index.css';
+import 'sanitize.css';
 
+import './index.css';
 import App from './app';
 
-const root = ReactDOM.createRoot(
+const root = createRoot(
   document.getElementById('root') as HTMLElement
 );
 

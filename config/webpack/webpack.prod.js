@@ -25,6 +25,7 @@ module.exports = {
     assetModuleFilename: path.join(assetsRelativePath, '[name].[contenthash][ext]'),
     clean: true,
   },
+
   optimization: {
     minimize: true,
     minimizer: [
