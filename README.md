@@ -10,7 +10,7 @@
 - [ ] stylelint config? (maybe)
 - [ ] bundle analyzer
 - [x] add package tools
-- [ ] create a funny favicon
+- [x] create a funny favicon
 - [ ] test performance with big project or files
 - [ ] readme
 - [x] be happy :)

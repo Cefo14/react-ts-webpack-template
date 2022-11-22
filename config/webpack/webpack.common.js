@@ -19,8 +19,9 @@ const buildPath = path.join(rootPath, 'build');
 const nodeModulesPath = path.join(rootPath, 'node_modules');
 const cachePath = path.join(nodeModulesPath, '.cache');
 const eslintCachePath = path.join(cachePath, '.eslintcache');
-const entryHTMLFileName = 'index.html';
+const publicHTMLFileName = 'index.html';
 const entryFileName = 'index.tsx';
+const faviconFileName = 'favicon.ico';
 const jsRelativePath = 'js';
 const cssRelativePath = 'css';
 const assetsRelativePath = 'assets';
@@ -116,9 +117,10 @@ const load = (env) => {
         "process.env": JSON.stringify(process.env),
       }),
       new HtmlWebpackPlugin({
-        filename: entryHTMLFileName,
-        template: path.join(publicPath, entryHTMLFileName),
-        hash: true
+        filename: publicHTMLFileName,
+        template: path.join(publicPath, publicHTMLFileName),
+        favicon: path.join(publicPath, faviconFileName),
+        hash: isDevelopment
       }),
       new ForkTsCheckerWebpackPlugin({
         typescript: {
@@ -147,8 +149,9 @@ module.exports = {
   buildPath,
   nodeModulesPath,
   cachePath,
-  entryHTMLFileName,
+  publicHTMLFileName,
   entryFileName,
+  faviconFileName,
   jsRelativePath,
   cssRelativePath,
   assetsRelativePath,
