@@ -108,7 +108,14 @@ const load = ({
           oneOf: [
             {
               dependency: { not: ['url'] },
-              use: ['@svgr/webpack', 'url-loader'],
+              use: [
+                {
+                  loader: '@svgr/webpack'
+                },
+                {
+                  loader:'url-loader'
+                }
+              ],
             },
             {
               type: 'asset',
@@ -125,7 +132,8 @@ const load = ({
         filename: publicHTMLFileName,
         template: path.join(publicPath, publicHTMLFileName),
         favicon: path.join(publicPath, faviconFileName),
-        hash: isDevelopment
+        hash: isDevelopment,
+        scriptLoading: 'defer',
       }),
       new ForkTsCheckerWebpackPlugin({
         typescript: {

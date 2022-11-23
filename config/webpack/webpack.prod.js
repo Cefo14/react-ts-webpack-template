@@ -3,6 +3,7 @@ const path = require('path');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 const {
   srcPath,
@@ -31,12 +32,30 @@ module.exports = {
     minimizer: [
       new TerserPlugin(),
       new CssMinimizerPlugin(),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.sharpMinify,
+          options: {
+            encodeOptions: {
+              jpeg: {
+                quality: 39, // medium - low
+              },
+              png: {
+                quality: 39, // medium - low
+              },
+              webp: {
+                lossless: false,
+              },
+            },
+          },
+        },
+      }),
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: path.join(cssRelativePath,'[name].[contenthash].css'),
-      chunkFilename: path.join(cssRelativePath,'[name].[contenthash].chunk.css'),
+      filename: path.join(cssRelativePath, '[name].[contenthash].css'),
+      chunkFilename: path.join(cssRelativePath, '[name].[contenthash].chunk.css'),
     })
   ],
 };
