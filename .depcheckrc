@@ -1,6 +1,33 @@
 {
   "ignores": [
-
+    "@commitlint/*",
+    "@svgr/*",
+    "@testing-library/*",
+    "@types/*",
+    "babel-loader",
+    "core-js",
+    "css-loader",
+    "cz-conventional-changelog",
+    "identity-obj-proxy",
+    "jest-environment-jsdom",
+    "lint-staged",
+    "postcss-loader",
+    "sass",
+    "sass-loader",
+    "sharp",
+    "style-loader",
+    "url-loader",
+    "webpack-cli"
   ],
-  "skip-missing": true
+  "skip-missing": true,
+  "specials": [
+    "babel",
+    "bin",
+    "commitizen",
+    "eslint",
+    "husky",
+    "jest",
+    "lint-staged",
+    "webpack"
+  ]
 }
