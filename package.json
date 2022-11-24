@@ -15,7 +15,8 @@
     "git:husky": "husky install",
     "git:commit": "cz",
     "check:updates": "ncu",
-    "check:unused": "depcheck"
+    "check:unused": "depcheck",
+    "check:unimported": "unimported"
   },
   "devDependencies": {
     "@babel/core": "7.19.6",
@@ -79,6 +80,7 @@
     "style-loader": "3.3.1",
     "terser-webpack-plugin": "5.3.6",
     "typescript": "4.8.4",
+    "unimported": "1.23.0",
     "url-loader": "4.1.1",
     "webpack": "5.74.0",
     "webpack-bundle-analyzer": "4.7.0",
