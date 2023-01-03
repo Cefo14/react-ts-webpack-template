@@ -126,7 +126,14 @@ const load = ({
     },
     plugins: [
       new webpack.DefinePlugin({
-        "process.env": JSON.stringify(process.env),
+        "process.env": (
+          Object
+            .keys(process.env)
+            .reduce((acc, key) => ({
+              ...acc,
+              [key]: JSON.stringify(process.env[key])
+            }), {})
+        )
       }),
       new HtmlWebpackPlugin({
         filename: publicHTMLFileName,
