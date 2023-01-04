@@ -1,9 +1,9 @@
 const path = require('path');
 
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const {
   srcPath,
@@ -11,7 +11,7 @@ const {
   jsRelativePath,
   cssRelativePath,
   assetsRelativePath,
-  buildPath,
+  buildPath
 } = require('./webpack.common');
 
 module.exports = {
@@ -24,7 +24,7 @@ module.exports = {
     filename: path.join(jsRelativePath, '[name].[contenthash].js'),
     chunkFilename: path.join(jsRelativePath, '[name].[contenthash].chunk.js'),
     assetModuleFilename: path.join(assetsRelativePath, '[name].[contenthash][ext]'),
-    clean: true,
+    clean: true
   },
 
   optimization: {
@@ -38,27 +38,27 @@ module.exports = {
           options: {
             encodeOptions: {
               jpeg: {
-                quality: 39, // medium - low
+                quality: 39 // medium - low
               },
               png: {
-                quality: 39, // medium - low
+                quality: 39 // medium - low
               },
               webp: {
-                lossless: false,
-              },
-            },
-          },
-        },
-      }),
+                lossless: false
+              }
+            }
+          }
+        }
+      })
     ],
     splitChunks: {
-      chunks: 'all',
-    },
+      chunks: 'all'
+    }
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: path.join(cssRelativePath, '[name].[contenthash].css'),
-      chunkFilename: path.join(cssRelativePath, '[name].[contenthash].chunk.css'),
+      chunkFilename: path.join(cssRelativePath, '[name].[contenthash].chunk.css')
     })
-  ],
+  ]
 };

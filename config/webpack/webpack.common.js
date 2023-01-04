@@ -31,18 +31,18 @@ const assetsRelativePath = 'assets';
 const isDevelopmentEnv = (env = '') => {
   const { NODE_ENV } = process.env;
   const mode = 'development';
-  return env === mode || NODE_ENV === mode || NODE_ENV === undefined
+  return env === mode || NODE_ENV === mode || NODE_ENV === undefined;
 };
 
 const isProductionEnv = (env = '') => {
   const { NODE_ENV } = process.env;
   const mode = 'production';
-  return env === mode || NODE_ENV === mode
+  return env === mode || NODE_ENV === mode;
 };
 
 const load = ({
   mode,
-  ANALYZE_BUNDLE,
+  ANALYZE_BUNDLE
 }) => {
   const isDevelopment = isDevelopmentEnv(mode);
   const isProduction = isProductionEnv(mode);
@@ -50,14 +50,14 @@ const load = ({
   return {
     cache: {
       type: 'filesystem',
-      cacheDirectory: cachePath,
+      cacheDirectory: cachePath
     },
     resolve: {
-      extensions: ['.tsx', '.ts', '.jsx', '.js'],
+      extensions: ['.tsx', '.ts', '.jsx', '.js']
     },
     stats: {
       errorDetails: true,
-      children: true,
+      children: true
     },
 
     module: {
@@ -70,19 +70,19 @@ const load = ({
               loader: 'babel-loader',
               options: {
                 cacheCompression: false,
-                cacheDirectory: true,
+                cacheDirectory: true
               }
-            },
-          ],
+            }
+          ]
         },
         {
           test: /\.(js|ts)x?$/,
-          enforce: "pre",
+          enforce: 'pre',
           use: [
             {
-              loader: "source-map-loader"
+              loader: 'source-map-loader'
             }
-          ],
+          ]
         },
         {
           test: /\.s?css$/,
@@ -92,7 +92,7 @@ const load = ({
               loader: isProduction ? MiniCssExtractPlugin.loader : 'style-loader'
             },
             {
-              loader: 'css-loader',
+              loader: 'css-loader'
             },
             {
               loader: 'postcss-loader',
@@ -100,15 +100,15 @@ const load = ({
                 postcssOptions: {
                   plugins: [
                     postcssPresetEnv(),
-                    postcssFlexbugsFixes(),
-                  ],
-                },
-              },
+                    postcssFlexbugsFixes()
+                  ]
+                }
+              }
             },
             {
               loader: 'sass-loader'
-            },
-          ],
+            }
+          ]
         },
         {
           test: /\.module.s?css$/,
@@ -119,8 +119,8 @@ const load = ({
             {
               loader: 'css-loader',
               options: {
-                modules: true,
-              },
+                modules: true
+              }
             },
             {
               loader: 'postcss-loader',
@@ -128,15 +128,15 @@ const load = ({
                 postcssOptions: {
                   plugins: [
                     postcssPresetEnv(),
-                    postcssFlexbugsFixes(),
-                  ],
-                },
-              },
+                    postcssFlexbugsFixes()
+                  ]
+                }
+              }
             },
             {
               loader: 'sass-loader'
-            },
-          ],
+            }
+          ]
         },
         {
           test: /\.(png|jpe?g|gif|webp)$/i,
@@ -152,20 +152,20 @@ const load = ({
                   loader: '@svgr/webpack'
                 },
                 {
-                  loader:'url-loader'
+                  loader: 'url-loader'
                 }
-              ],
+              ]
             },
             {
-              type: 'asset',
-            },
-          ],
-        },
-      ],
+              type: 'asset'
+            }
+          ]
+        }
+      ]
     },
     plugins: [
       new webpack.DefinePlugin({
-        "process.env": (
+        'process.env': (
           Object
             .keys(process.env)
             .reduce((acc, key) => ({
@@ -180,26 +180,26 @@ const load = ({
         favicon: path.join(publicPath, faviconFileName),
         inject: true,
         hash: isDevelopment,
-        scriptLoading: 'defer',
+        scriptLoading: 'defer'
       }),
       new ForkTsCheckerWebpackPlugin({
         typescript: {
           diagnosticOptions: {
             semantic: true,
-            syntactic: true,
+            syntactic: true
           }
-        },
+        }
       }),
       new ESLintPlugin({
         extensions: ['js', 'jsx', 'ts', 'tsx'],
         failOnError: true,
         failOnWarning: false,
         cache: true,
-        cacheLocation: eslintCachePath,
+        cacheLocation: eslintCachePath
       }),
-      ANALYZE_BUNDLE && new BundleAnalyzerPlugin(),
+      ANALYZE_BUNDLE && new BundleAnalyzerPlugin()
     ].filter(Boolean)
-  }
+  };
 };
 
 module.exports = {
@@ -218,5 +218,5 @@ module.exports = {
   assetsRelativePath,
 
   isDevelopmentEnv,
-  isProductionEnv,
+  isProductionEnv
 };

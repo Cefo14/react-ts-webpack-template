@@ -8,7 +8,7 @@ const {
   publicPath,
   jsRelativePath,
   assetsRelativePath,
-  buildPath,
+  buildPath
 } = require('./webpack.common');
 
 module.exports = {
@@ -20,18 +20,18 @@ module.exports = {
     path: buildPath,
     filename: path.join(jsRelativePath, '[name].js'),
     chunkFilename: path.join(jsRelativePath, '[name].chunk.js'),
-    assetModuleFilename: path.join(assetsRelativePath, '[name].[contenthash][ext]'),
+    assetModuleFilename: path.join(assetsRelativePath, '[name].[contenthash][ext]')
   },
 
   experiments: {
     lazyCompilation: false
   },
-  
+
   devServer: {
     client: {
       overlay: {
         errors: true,
-        warnings: false,
+        warnings: false
       }
     },
     historyApiFallback: true,
@@ -40,10 +40,10 @@ module.exports = {
     port: 3000,
     static: {
       directory: publicPath
-    },
+    }
   },
 
   plugins: [
-    new ReactRefreshWebpackPlugin(),
-  ],
+    new ReactRefreshWebpackPlugin()
+  ]
 };
