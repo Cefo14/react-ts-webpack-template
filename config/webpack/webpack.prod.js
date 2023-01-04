@@ -50,7 +50,10 @@ module.exports = {
           },
         },
       }),
-    ]
+    ],
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   plugins: [
     new MiniCssExtractPlugin({

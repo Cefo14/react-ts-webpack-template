@@ -3,6 +3,7 @@ import HelloWorld from '../components/HelloWorld';
 import { ReactComponent as Vector } from '../assets/vector.svg';
 import image from '../assets/cheems.png';
 
+import styles from './App.module.css';
 import './App.scss';
 
 const App = () => (
@@ -15,6 +16,9 @@ const App = () => (
       width={250}
       height={250}
     />
+    <h1 className={styles.title}>
+      Cheems
+    </h1>
   </div>
 );
 

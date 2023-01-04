@@ -24,21 +24,23 @@ module.exports = {
   },
 
   experiments: {
-    lazyCompilation: true
+    lazyCompilation: false
   },
+  
   devServer: {
-    open: true,
-    hot: true,
-    port: 3000,
-    static: {
-      directory: publicPath
-    },
     client: {
       overlay: {
         errors: true,
         warnings: false,
       }
-    }
+    },
+    historyApiFallback: true,
+    hot: true,
+    open: true,
+    port: 3000,
+    static: {
+      directory: publicPath
+    },
   },
 
   plugins: [

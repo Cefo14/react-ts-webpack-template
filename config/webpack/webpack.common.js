@@ -57,6 +57,7 @@ const load = ({
     },
     stats: {
       errorDetails: true,
+      children: true,
     },
 
     module: {
@@ -75,13 +76,51 @@ const load = ({
           ],
         },
         {
+          test: /\.(js|ts)x?$/,
+          enforce: "pre",
+          use: [
+            {
+              loader: "source-map-loader"
+            }
+          ],
+        },
+        {
           test: /\.s?css$/,
+          exclude: /\.module.s?css$/,
           use: [
             {
               loader: isProduction ? MiniCssExtractPlugin.loader : 'style-loader'
             },
             {
-              loader: 'css-loader'
+              loader: 'css-loader',
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: {
+                  plugins: [
+                    postcssPresetEnv(),
+                    postcssFlexbugsFixes(),
+                  ],
+                },
+              },
+            },
+            {
+              loader: 'sass-loader'
+            },
+          ],
+        },
+        {
+          test: /\.module.s?css$/,
+          use: [
+            {
+              loader: isProduction ? MiniCssExtractPlugin.loader : 'style-loader'
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+              },
             },
             {
               loader: 'postcss-loader',
@@ -139,6 +178,7 @@ const load = ({
         filename: publicHTMLFileName,
         template: path.join(publicPath, publicHTMLFileName),
         favicon: path.join(publicPath, faviconFileName),
+        inject: true,
         hash: isDevelopment,
         scriptLoading: 'defer',
       }),
