@@ -1,6 +1,8 @@
 import HelloWorld from '../components/HelloWorld';
-import { ReactComponent as Vector } from './vector.svg';
-import image from './cheems.png';
+
+import { ReactComponent as Vector } from '../assets/vector.svg';
+import image from '../assets/cheems.png';
+
 import './App.scss';
 
 const App = () => (

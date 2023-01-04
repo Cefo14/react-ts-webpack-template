@@ -11,7 +11,7 @@
     "lint:fix": "eslint src --ext .ts --ext .tsx --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:staged": "npx jest --bail --findRelatedTests --passWithNoTests",
+    "test:staged": "jest --bail --findRelatedTests --passWithNoTests",
     "git:husky": "husky install",
     "git:commit": "cz",
     "check:updates": "ncu",
