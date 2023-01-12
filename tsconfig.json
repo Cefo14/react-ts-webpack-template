@@ -23,6 +23,7 @@
     "target": "esnext",
   },
   "include": [
-    "src"
-  ]
+    "src",
+    "config",
+  ],
 }

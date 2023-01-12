@@ -37,6 +37,14 @@
       "rules": {
         "react/jsx-props-no-spreading": "off"
       }
-		}
+		},
+    {
+      "files": [
+        "**/config/**"
+      ],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
   ]
 }

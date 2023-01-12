@@ -1,26 +1,20 @@
-const path = require('path');
-
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const {
-  srcPath,
-  entryFileName,
-  publicPath,
-  jsRelativePath,
-  assetsRelativePath,
-  buildPath
+  paths,
+  filePaths
 } = require('./webpack.common');
 
 module.exports = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
 
-  entry: path.join(srcPath, entryFileName),
+  entry: filePaths.entry,
   output: {
-    path: buildPath,
-    filename: path.join(jsRelativePath, '[name].js'),
-    chunkFilename: path.join(jsRelativePath, '[name].chunk.js'),
-    assetModuleFilename: path.join(assetsRelativePath, '[name].[contenthash][ext]')
+    path: paths.build,
+    filename: 'js/[name].js',
+    chunkFilename: 'js/[name].chunk.js',
+    assetModuleFilename: 'assets/[name].[ext]'
   },
 
   experiments: {
@@ -39,7 +33,7 @@ module.exports = {
     open: true,
     port: 3000,
     static: {
-      directory: publicPath
+      directory: paths.public
     }
   },
 

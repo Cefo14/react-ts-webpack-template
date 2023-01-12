@@ -1,3 +1,2 @@
-webpack.*.js
-jest.config.*
-config/**
+jest.config.js
+webpack.config.js

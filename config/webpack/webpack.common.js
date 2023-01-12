@@ -15,18 +15,28 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 const rootPath = path.resolve(__dirname, '..', '..');
 
-const srcPath = path.join(rootPath, 'src');
-const publicPath = path.join(rootPath, 'public');
-const buildPath = path.join(rootPath, 'build');
-const nodeModulesPath = path.join(rootPath, 'node_modules');
-const cachePath = path.join(nodeModulesPath, '.cache');
-const eslintCachePath = path.join(cachePath, '.eslintcache');
-const publicHTMLFileName = 'index.html';
-const entryFileName = 'index.tsx';
-const faviconFileName = 'favicon.ico';
-const jsRelativePath = 'js';
-const cssRelativePath = 'css';
-const assetsRelativePath = 'assets';
+const paths = {
+  root: rootPath,
+  src: path.join(rootPath, 'src'),
+  public: path.join(rootPath, 'public'),
+  build: path.join(rootPath, 'build'),
+  nodeModules: path.join(rootPath, 'node_modules'),
+  cache: path.join(rootPath, 'node_modules', '.cache')
+};
+
+const files = {
+  publicHTML: 'index.html',
+  favicon: 'favicon.ico',
+  eslintCache: '.eslintcache',
+  entry: 'index.tsx'
+};
+
+const filePaths = {
+  publicHTML: path.join(paths.public, files.publicHTML),
+  favicon: path.join(paths.public, files.favicon),
+  eslintCache: path.join(paths.cache, files.eslintCache),
+  entry: path.join(paths.src, files.entry)
+};
 
 const isDevelopmentEnv = (env = '') => {
   const { NODE_ENV } = process.env;
@@ -50,7 +60,7 @@ const load = ({
   return {
     cache: {
       type: 'filesystem',
-      cacheDirectory: cachePath
+      cacheDirectory: paths.cache
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.jsx', '.js']
@@ -175,9 +185,9 @@ const load = ({
         )
       }),
       new HtmlWebpackPlugin({
-        filename: publicHTMLFileName,
-        template: path.join(publicPath, publicHTMLFileName),
-        favicon: path.join(publicPath, faviconFileName),
+        filename: files.publicHTML,
+        template: filePaths.publicHTML,
+        favicon: filePaths.favicon,
         inject: true,
         hash: isDevelopment,
         scriptLoading: 'defer'
@@ -195,7 +205,7 @@ const load = ({
         failOnError: true,
         failOnWarning: false,
         cache: true,
-        cacheLocation: eslintCachePath
+        cacheLocation: filePaths.eslintCache
       }),
       ANALYZE_BUNDLE && new BundleAnalyzerPlugin()
     ].filter(Boolean)
@@ -205,17 +215,9 @@ const load = ({
 module.exports = {
   load,
 
-  srcPath,
-  publicPath,
-  buildPath,
-  nodeModulesPath,
-  cachePath,
-  publicHTMLFileName,
-  entryFileName,
-  faviconFileName,
-  jsRelativePath,
-  cssRelativePath,
-  assetsRelativePath,
+  paths,
+  files,
+  filePaths,
 
   isDevelopmentEnv,
   isProductionEnv
