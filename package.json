@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --mode development --define-process-env-node-env development",
     "build": "webpack --mode production --define-process-env-node-env production --progress",
-    "build:analyze": "webpack --mode production --define-process-env-node-env production --env ANALYZE_BUNDLE",
+    "build:analyze": "npm run build -- --env ANALYZE_BUNDLE",
     "lint": "eslint src --ext .ts --ext .tsx",
     "lint:fix": "npm run lint -- --fix",
     "lint:styles": "stylelint src/**/*.{css,scss}",
