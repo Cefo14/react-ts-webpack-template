@@ -12,6 +12,7 @@
     "lint-staged",
     "sass",
     "sharp",
+    "stylelint-config-*", 
     "webpack-cli"
   ],
   "skip-missing": true,
