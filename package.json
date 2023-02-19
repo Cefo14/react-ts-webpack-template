@@ -16,9 +16,9 @@
     "test:staged": "jest --bail --findRelatedTests --passWithNoTests",
     "git:husky": "husky install",
     "git:commit": "cz",
-    "check:updates": "ncu",
-    "check:unused": "depcheck",
-    "check:unimported": "unimported"
+    "check:updates": "npx npm-check-updates",
+    "check:unused": "npx depcheck",
+    "check:unimported": "npx unimported"
   },
   "devDependencies": {
     "@babel/core": "7.19.6",
@@ -49,7 +49,6 @@
     "css-loader": "6.7.1",
     "css-minimizer-webpack-plugin": "4.2.2",
     "cz-conventional-changelog": "3.3.0",
-    "depcheck": "1.4.3",
     "dotenv": "16.0.3",
     "eslint": "8.2.0",
     "eslint-config-airbnb": "19.0.4",
@@ -72,7 +71,6 @@
     "jest-environment-jsdom": "29.3.1",
     "lint-staged": "13.0.3",
     "mini-css-extract-plugin": "2.6.1",
-    "npm-check-updates": "16.4.1",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-loader": "7.0.1",
     "postcss-preset-env": "7.8.3",
@@ -87,7 +85,6 @@
     "stylelint-config-standard": "29.0.0",
     "terser-webpack-plugin": "5.3.6",
     "typescript": "4.8.4",
-    "unimported": "1.23.0",
     "url-loader": "4.1.1",
     "webpack": "5.74.0",
     "webpack-bundle-analyzer": "4.7.0",
