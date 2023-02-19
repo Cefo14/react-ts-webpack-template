@@ -1,7 +1,7 @@
 import HelloWorld from '../components/HelloWorld';
 
 import { ReactComponent as Vector } from '../assets/vector.svg';
-import image from '../assets/cheems.png';
+import image from '../assets/cheems.webp';
 
 import styles from './App.module.css';
 import './App.scss';
@@ -9,7 +9,6 @@ import './App.scss';
 const App = () => (
   <div className="App__container">
     <HelloWorld />
-    <Vector />
     <img
       alt="cheems"
       src={image}
@@ -18,6 +17,7 @@ const App = () => (
     />
     <h1 className={styles.title}>
       Cheems
+      <Vector />
     </h1>
   </div>
 );
