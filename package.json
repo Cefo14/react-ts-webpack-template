@@ -18,7 +18,8 @@
     "git:commit": "cz",
     "check:updates": "npx npm-check-updates",
     "check:unused": "npx depcheck",
-    "check:unimported": "npx unimported"
+    "check:unimported": "npx unimported",
+    "lighthouseci": "npx @lhci/cli autorun"
   },
   "devDependencies": {
     "@babel/core": "7.19.6",
