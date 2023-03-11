@@ -13,7 +13,6 @@ This is a template to create a react application with webpak
 Clone the repository and run the following command in the project directory to install the dependencies:
 
 - `npm install`
-- `npm run git:husky`
 - `npm start`
 
 ## Scripts
