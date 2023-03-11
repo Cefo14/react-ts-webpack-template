@@ -19,7 +19,8 @@
     "check:updates": "npx npm-check-updates",
     "check:unused": "npx depcheck",
     "check:unimported": "npx unimported",
-    "lighthouseci": "npx @lhci/cli autorun"
+    "lighthouseci": "npx @lhci/cli autorun",
+    "postinstall": "npm run git:husky"
   },
   "devDependencies": {
     "@babel/core": "7.21.0",
